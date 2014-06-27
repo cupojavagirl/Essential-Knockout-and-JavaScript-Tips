@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://www.johnpapa.net/scripts/toastr.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+     <h1>Suscription Demo</h1>
+
+  <div>
+      <ul>
+          <li><span class="alignedCaption">Make: </span>
+              <select data-bind="options: makes, value: selectedMake, optionsText: 'name',
+                optionsCaption: 'Choose a make'">
+              </select>
+          </li>
+          <li><span class="alignedCaption">Model: </span>
+              <select data-bind="options: models, value: selectedModel, optionsText: 'name', 
+                optionsCaption: 'Choose a model', enable: selectedMake">
+              </select>
+          </li>
+          <li><span class="alignedCaption">Car: </span>
+              <select data-bind="options: cars, value: selectedCar, optionsText: 'desc', 
+                optionsCaption: 'Choose a car', enable: selectedModel">
+              </select>
+          </li>
+      </ul>
+      <div class="carResults"> 
+          <h4 class="caption">Selected Make</h4>
+          <div data-bind="dump: selectedMake"></div>
+          <h4 class="caption">Selected Model</h4>
+          <div data-bind="dump: selectedModel"></div>
+          <h4 class="caption">Selected Car</h4>
+          <div data-bind="dump: selectedCar"></div>
+          <h4 class="caption">All Data Bindings</h4>
+          <div data-bind="dump: $data"></div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="http://www.johnpapa.net/scripts/toastr.js"></script>
+    <script src="binding-dump.js"></script>
+    <script src="models.js"></script>
+    <script src="data.js"></script>
+    <script src="viewmodel.js"></script>
+  </body>
+
+</html>

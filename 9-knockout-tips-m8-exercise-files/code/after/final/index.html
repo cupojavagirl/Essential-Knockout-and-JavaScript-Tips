@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://www.johnpapa.net/scripts/toastr.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <h4 class="muted">Event Delegation Demo</h4>
+        </div>
+      </div>
+      <p class="muted">Binding each row</p>
+    </div>
+
+    <section class="container">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: people, delegatedHandler: 'click'">
+          <tr>
+            <td><span data-bind="text: id"></span></td>
+            <td><span data-bind="text: firstName"></span></td>
+            <td><span data-bind="text: lastName"></span></td>
+            <td>
+              <button class="btn btn-info" data-click="selectPerson">select</button>
+              <button class="btn btn-danger" data-click="removePerson"><i class="icon-trash icon-white"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <section data-bind="with: selectedPerson">
+        <h4>Selected Person: <span class="label label-info" data-bind="text: id"></span></h4>
+        <div class="form-horizontal well" >
+          <div class="control-group">
+            <label class="control-label" for="firstName">First Name</label>
+            <div class="controls">
+              <input type="text" id="firstName" placeholder="First Name" data-bind="value: firstName"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="lastName">Last Name</label>
+            <div class="controls">
+              <input type="text" id="lastName" placeholder="Last Name" data-bind="value: lastName"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="twitter">Twitter</label>
+            <div class="controls">
+              <input type="text" id="twitter" placeholder="Twitter" data-bind="value: twitter"/>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </section>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="http://www.johnpapa.net/scripts/toastr.js"></script>
+    <script src="knockout-delegatedEvents.js"></script>
+    <script src="models.js"></script>
+    <script src="data.js"></script>
+    <script src="viewmodel.js"></script>
+  </body>
+
+</html>

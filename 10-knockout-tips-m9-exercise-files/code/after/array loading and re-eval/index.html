@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Array Loading Performance Demo</title>
+    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://www.johnpapa.net/scripts/toastr.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Array Loading Performance Demo</h1>
+    
+    <div>
+        Reevaluation Count: 
+        <span data-bind="text: people.reevaluationCount"></span>
+        <button data-bind="click: resetTracker" 
+            class="btn btn-danger">Reset</button>
+    </div>
+    <div>
+        <div class="btn-group">
+            <button data-bind="click: addPeople" class="btn">Add People</button>
+            <button data-bind="click: addPeopleBetter" class="btn">Add People Better</button>
+        </div>
+        <div class="btn-group">
+            <button data-bind="click: addLotsOfPeople" class="btn">Add Lots of People</button>
+            <button data-bind="click: addLotsOfPeopleBetter" class="btn">Add Lots of People Better</button>
+        </div>
+        <div>
+            <button data-bind="click: clear" class="btn btn-danger">Clear People</button>
+        </div>
+        <div>
+            <ul data-bind="foreach: people">
+                <li>
+                    <span data-bind="text: firstName"></span> 
+                    <span data-bind="text: lastName"></span> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="http://www.johnpapa.net/scripts/toastr.js"></script>
+    <script src="models.js"></script>
+    <script src="data.js"></script>
+    <script src="viewmodel.js"></script>
+</body>
+
+</html>

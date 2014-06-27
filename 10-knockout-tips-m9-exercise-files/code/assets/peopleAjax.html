@@ -1,0 +1,30 @@
+﻿<section>
+
+    <style>
+        @media only screen and (max-width: 767px) {
+            [class*="span"] {
+                float: left;
+                width: 150px;
+            }
+        }
+        .thumbnail > img {
+            width: 88px;
+            height: 100px;
+        }
+        .search-query {
+            margin-bottom: 16px !important; 
+        }
+    </style>
+
+    <h2 class="page-title"><span data-bind="text: title"></span> (<span data-bind="text: people().length"></span>)</h2>
+
+    <input data-bind="value: nameFilter, valueUpdate: 'afterkeydown'"
+        placeholder="search" class="search-query" />
+    <ul data-bind="foreach: people" class="row thumbnails">
+        <li class="span2 thumbnail">
+            <img data-bind="attr: { src: photo }" />
+            <span data-bind="text: name"></span>
+        </li>
+    </ul>
+
+</section>

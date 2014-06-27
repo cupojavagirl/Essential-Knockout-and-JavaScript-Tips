@@ -1,0 +1,7 @@
+.alignedCaption {
+		float: left;
+		width: 40px;
+}
+select { margin-left: 10px; }
+li { list-style: none; }
+.carResults { margin: 20px; }

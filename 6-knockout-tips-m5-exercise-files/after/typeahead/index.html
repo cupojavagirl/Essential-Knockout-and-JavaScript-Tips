@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//www.johnpapa.net/scripts/toastr.css" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+     <h1>Knockout and Typeahead</h1>
+
+    <section>
+      <ul data-bind="foreach: people">
+        <li> 
+          <span data-bind="text: firstName"></span>
+          <span data-bind="text: lastName"></span>
+          
+          <!-- embedded -->
+          <input type="text" 
+			data-bind="value: movie"
+			data-provide="typeahead" 
+			data-source="[
+              &quot;Iron Man&quot;, 
+              &quot;Iron Man 2&quot;, 
+              &quot;Iron Man 3&quot;, 
+              &quot;Avengers&quot;, 
+              &quot;LOTR: The Fellowship of the Ring&quot;,
+              &quot;LOTR: The Two Towers&quot;,
+              &quot;LOTR: The Return of the Ring&quot;,
+              &quot;Star Wars I: Phantom Menace&quot;,
+              &quot;Star Wars II: Attack of the Clones&quot;,
+              &quot;Star Wars III: Revenge of the Sith&quot;,
+              &quot;Star Wars IV: A New Hope&quot;,
+              &quot;Star Wars V: The Empire Strikes Back&quot;,
+              &quot;Star Wars VI: Return of the Jedi&quot;,
+              &quot;The Princess Bride&quot;,
+              &quot;Thor&quot;,
+              &quot;Captain America&quot;
+              ]" 
+			  data-items="2"/>
+
+          <!-- attr binding  -->
+          <input type="text" data-bind="value: movie, attr: {'data-provide': 'typeahead', 'data-items': 2, 'data-source': $parent.moviesJSON}" />
+          
+          <!-- typeahead binding handler  -->
+          <input type="text" data-bind="typeahead: $parent.movies, value: movie, items: 3"/>
+        </li>
+      </ul>
+      <div data-bind="dump: $data"></div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="//www.johnpapa.net/scripts/toastr.js"></script>
+    <script src="binding-dump.js"></script>
+    <script src="binding-typeahead.js"></script>
+    <script src="viewmodel.js"></script>
+  </body>
+ 
+</html>
